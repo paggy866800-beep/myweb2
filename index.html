@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENRI 森裡 ｜ 植物租賃與綠意養護服務提案</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f4f7f4',
+                            100: '#e3eae3',
+                            200: '#c6d6c7',
+                            300: '#9eb9a0',
+                            400: '#739776',
+                            500: '#527a56',
+                            600: '#3e6142',
+                            700: '#334e36',
+                            800: '#2b402e',
+                            900: '#243527',
+                            950: '#121d14',
+                        },
+                        sand: {
+                            50: '#fdfbf7',
+                            100: '#f8f4ec',
+                            200: '#eee5d5',
+                            300: '#dfcfb4',
+                            400: '#cdb38c',
+                        },
+                        earth: '#8C6D58'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
+                        serif: ['Playfair Display', 'Noto Serif TC', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #FBF9F5;
+            color: #2b402e;
+        }
+        .serif {
+            font-family: 'Noto Serif TC', serif;
+        }
+        .bg-pattern {
+            background-color: #FBF9F5;
+            background-image: radial-gradient(#c6d6c7 0.75px, transparent 0.75px), radial-gradient(#c6d6c7 0.75px, #FBF9F5 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-sand-50/90 backdrop-blur-md border-b border-sand-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-brand-700 text-sand-50 flex items-center justify-center font-serif text-xl font-bold">
+                        森
+                    </div>
+                    <div>
+                        <span class="text-xl font-serif font-bold text-brand-900 tracking-wider block">SENRI 森裡</span>
+                        <span class="text-xs text-brand-600 tracking-widest uppercase block -mt-1">Plant Rental & Care</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Navigation -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-900">
+                    <a href="#about" class="hover:text-brand-600 transition-colors">關於森裡服務</a>
+                    <a href="#services" class="hover:text-brand-600 transition-colors">服務方案與特色</a>
+                    <a href="#plants" class="hover:text-brand-600 transition-colors">植物搭配陣容</a>
+                    <a href="#process" class="hover:text-brand-600 transition-colors">服務流程</a>
+                    <a href="#calculator" class="hover:text-brand-600 transition-colors">試算與費用</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-brand-700 hover:bg-brand-800 text-sand-50 px-5 py-2.5 rounded-full text-sm font-medium transition-all shadow-sm hover:shadow">
+                    <i class="fa-regular fa-paper-plane"></i>
+                    <span>預約現場勘查</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-brand-900 focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-sand-200 bg-sand-50 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block py-2 text-brand-900 font-medium border-b border-sand-100">關於森裡服務</a>
+            <a href="#services" class="block py-2 text-brand-900 font-medium border-b border-sand-100">服務方案與特色</a>
+            <a href="#plants" class="block py-2 text-brand-900 font-medium border-b border-sand-100">植物搭配陣容</a>
+            <a href="#process" class="block py-2 text-brand-900 font-medium border-b border-sand-100">服務流程</a>
+            <a href="#calculator" class="block py-2 text-brand-900 font-medium border-b border-sand-100">試算與費用</a>
+            <a href="#contact" class="block w-full text-center bg-brand-700 text-sand-50 py-3 rounded-lg font-medium mt-4">預約現場勘查</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-32 bg-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-800 text-xs font-semibold tracking-wide">
+                        <i class="fa-solid fa-leaf text-brand-600"></i>
+                        <span>輕資產美學 ✕ 大溪在地綠意直送</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-brand-950 leading-tight">
+                        把自然搬進空間，<br>
+                        <span class="text-brand-600 underline decoration-sand-300 underline-offset-8">免去照顧負擔</span> 的植物租賃服務
+                    </h1>
+                    <p class="text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl">
+                        SENRI 森裡提供全方位的商業與居家綠植租賃養護。由專業植栽美學團隊規劃、直連在地優質花市嚴選植株，為您的咖啡廳、辦公室、居家空間打造零照顧負擔的綠色靈魂。
+                    </p>
+                    
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="inline-flex justify-center items-center gap-2 bg-brand-700 hover:bg-brand-800 text-sand-50 px-7 py-3.5 rounded-xl text-base font-medium transition-all shadow-md hover:shadow-lg">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <span>獲取專屬綠植方案</span>
+                        </a>
+                        <a href="#calculator" class="inline-flex justify-center items-center gap-2 bg-white hover:bg-sand-100 text-brand-900 border border-sand-300 px-7 py-3.5 rounded-xl text-base font-medium transition-all">
+                            <i class="fa-solid fa-calculator text-brand-600"></i>
+                            <span>線上快速試算費用</span>
+                        </a>
+                    </div>
+
+                    <!-- Value Highlights -->
+                    <div class="pt-8 grid grid-cols-3 gap-4 border-t border-sand-200/80">
+                        <div>
+                            <p class="text-2xl font-bold font-serif text-brand-800">01</p>
+                            <p class="text-xs text-gray-600 font-medium">免去死傷資本風險</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold font-serif text-brand-800">100%</p>
+                            <p class="text-xs text-gray-600 font-medium">定期巡檢與替換</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold font-serif text-brand-800">在地</p>
+                            <p class="text-xs text-gray-600 font-medium">大溪新鮮產地直送</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none rounded-3xl overflow-hidden shadow-2xl bg-white p-4 border border-sand-200">
+                        <img src="https://images.unsplash.com/photo-1545241047-6083a3684587?q=80&w=1000&auto=format&fit=crop" alt="森裡植栽空間提案" class="w-full h-80 sm:h-96 object-cover rounded-2xl">
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-sand-200 shadow-lg flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center">
+                                    <i class="fa-solid fa-arrows-rotate"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 font-medium">週期性養護服務</p>
+                                    <p class="text-sm font-bold text-brand-900">枯黃免費更新 ✕ 定期補水修剪</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Story & Solution Section -->
+    <section id="about" class="py-20 bg-white border-y border-sand-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-semibold text-brand-600 uppercase tracking-widest">WHY SENRI PLANT RENTAL</h2>
+                <h3 class="text-3xl font-serif font-bold text-brand-950">為什麼選擇「森裡」植物租賃養護？</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    您是否也曾花費萬把塊購入心儀綠植，卻因室內採光不足、病蟲害或照顧不當，短短幾個月便枯萎敗落？
+                    森裡為您解決「想擁有綠意，卻沒時間照顧、沒技術維持」的痛點。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pain Point 1 -->
+                <div class="p-8 rounded-2xl bg-sand-50 border border-sand-200 space-y-4 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-coins"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-900">降低初期採購門檻</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        無需一次性投入高額預算購買貴價盆栽與設計盆器。採用按月租賃模式，有效控管營運或居家預算支出。
+                    </p>
+                </div>
+
+                <!-- Pain Point 2 -->
+                <div class="p-8 rounded-2xl bg-sand-50 border border-sand-200 space-y-4 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-hand-holding-hand"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-900">專業養護 ✕ 包退包換</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        包含專人定期巡檢、澆水指導、施肥修剪與清潔。若植物非人為因素衰弱枯黃，森裡免費為您更換新品。
+                    </p>
+                </div>
+
+                <!-- Pain Point 3 -->
+                <div class="p-8 rounded-2xl bg-sand-50 border border-sand-200 space-y-4 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-900">大溪花市直送 ✕ 美學搭選</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        直連在地桃園大溪花市資源，掌握第一手健康優質植株。結合森裡質感手作美學，依空間風格量身搭配盆器與鋪面。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Packages Section -->
+    <section id="services" class="py-20 bg-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-semibold text-brand-600 uppercase tracking-widest">PLANT RENTAL PLANS</h2>
+                <h3 class="text-3xl font-serif font-bold text-brand-950">多元綠植租賃與養護方案</h3>
+                <p class="text-gray-600">專為咖啡廳、品牌門市、商業辦公室與個人住宅量身調配</p>
+            </div>
+
+            <!-- Package Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                <!-- Plan 1: 微型體驗與門市方案 -->
+                <div class="bg-white rounded-3xl p-8 border border-sand-200 shadow-sm flex flex-col justify-between hover:border-brand-400 transition-all">
+                    <div class="space-y-6">
+                        <div class="inline-block px-3 py-1 rounded-full bg-sand-100 text-brand-800 text-xs font-semibold">
+                            小型空間 / 咖啡廳輕量首選
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-serif font-bold text-brand-900">綠點角落方案</h4>
+                            <p class="text-xs text-gray-500 mt-1">適合 10-20 坪小店或微型辦公室</p>
+                        </div>
+                        <div class="flex items-baseline gap-1 border-b border-sand-200 pb-6">
+                            <span class="text-sm text-gray-500">NT$</span>
+                            <span class="text-4xl font-bold font-serif text-brand-900">1,800</span>
+                            <span class="text-xs text-gray-500">/ 月 (半年約)</span>
+                        </div>
+                        
+                        <ul class="space-y-3.5 text-sm text-gray-600">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-600"></i>
+                                <span>中型落地主題植栽 ✕ 1 盆</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-600"></i>
+                                <span>桌上型/層架質感植栽 ✕ 2 盆</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-600"></i>
+                                <span>每月 1 次專人養護巡檢</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-600"></i>
+                                <span>自然風格精選陶瓷/水泥盆器</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-400">
+                                <i class="fa-solid fa-circle-xmark"></i>
+                                <span>季節性換植調整（需加價）</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="#contact" onclick="selectPlan('綠點角落方案')" class="mt-8 block text-center bg-sand-100 hover:bg-sand-200 text-brand-900 py-3 rounded-xl font-medium transition-colors">
+                        選擇此方案
+                    </a>
+                </div>
+
+                <!-- Plan 2: 經典商業主題方案 (Highlighted) -->
+                <div class="bg-brand-900 text-sand-50 rounded-3xl p-8 border-2 border-brand-500 shadow-xl flex flex-col justify-between relative transform md:-translate-y-2">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-500 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider shadow">
+                        熱門首選 Recommend
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="inline-block px-3 py-1 rounded-full bg-brand-800 text-sand-200 text-xs font-semibold">
+                            中型商業空間 / 經典展綠
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-serif font-bold text-white">森森林意方案</h4>
+                            <p class="text-xs text-sand-300 mt-1">適合 20-40 坪咖啡廳、展場或住宅空間</p>
+                        </div>
+                        <div class="flex items-baseline gap-1 border-b border-brand-800 pb-6">
+                            <span class="text-sm text-sand-300">NT$</span>
+                            <span class="text-4xl font-bold font-serif text-sand-50">3,600</span>
+                            <span class="text-xs text-sand-300">/ 月 (半年約)</span>
+                        </div>
+                        
+                        <ul class="space-y-3.5 text-sm text-sand-200">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-300"></i>
+                                <span>大型主角級景觀植栽 ✕ 1 盆</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-300"></i>
+                                <span>中型氛圍植栽 ✕ 2 盆</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-300"></i>
+                                <span>小型桌上型 / 懸掛苔球 ✕ 3 盆</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-300"></i>
+                                <span>隔週 (每月 2 次) 專人養護擦葉巡檢</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-300"></i>
+                                <span>半年免費換植體驗 1 次</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="#contact" onclick="selectPlan('森森林意方案')" class="mt-8 block text-center bg-brand-400 hover:bg-brand-500 text-brand-950 py-3 rounded-xl font-bold transition-colors">
+                        選擇此方案
+                    </a>
+                </div>
+
+                <!-- Plan 3: 高階定製方案 -->
+                <div class="bg-white rounded-3xl p-8 border border-sand-200 shadow-sm flex flex-col justify-between hover:border-brand-400 transition-all">
+                    <div class="space-y-6">
+                        <div class="inline-block px-3 py-1 rounded-full bg-sand-100 text-brand-800 text-xs font-semibold">
+                            大型總部 / 旗艦門市 / 專案客製
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-serif font-bold text-brand-900">綠境高階訂製</h4>
+                            <p class="text-xs text-gray-500 mt-1">40 坪以上，包含景觀綠牆與展覽</p>
+                        </div>
+                        <div class="flex items-baseline gap-1 border-b border-sand-200 pb-6">
+                            <span class="text-sm text-gray-500">NT$</span>
+                            <span class="text-4xl font-bold font-serif text-brand-900">6,800</span>
+                            <span class="text-xs text-gray-500">起 / 月</span>
+                        </div>
+                        
+                        <ul class="space-y-3.5 text-sm text-gray-600">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-600"></i>
+                                <span>專屬植物美學規劃師現場量身丈量</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-600"></i>
+                                <span>不限數量全空間綠化搭配與盆器選配</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-600"></i>
+                                <span>週週專人現場巡檢水份病蟲害管理</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-600"></i>
+                                <span>無限次非人為因素免費即時替換</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-600"></i>
+                                <span>配合店內節慶氛圍更換特色花材</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="#contact" onclick="selectPlan('綠境高階訂製')" class="mt-8 block text-center bg-sand-100 hover:bg-sand-200 text-brand-900 py-3 rounded-xl font-medium transition-colors">
+                        諮詢專案訂製
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plant Showcase Section -->
+    <section id="plants" class="py-20 bg-white border-y border-sand-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-xs font-semibold text-brand-600 uppercase tracking-widest">SELECTED BOTANICALS</h2>
+                    <h3 class="text-3xl font-serif font-bold text-brand-950 mt-1">森裡精選室內觀葉植物</h3>
+                </div>
+                <p class="text-sm text-gray-500 mt-2 md:mt-0 max-w-md">
+                    大溪花市產地直選，嚴選具備耐陰、空氣淨化與高美感優點的耐看品種。
+                </p>
+            </div>
+
+            <!-- Grid of Plant Types -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Plant Item 1 -->
+                <div class="group rounded-2xl overflow-hidden border border-sand-200 bg-sand-50 hover:shadow-lg transition-all">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1614594975525-e45190c55d0b?q=80&w=600&auto=format&fit=crop" alt="龜背竹" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 space-y-1">
+                        <span class="text-[10px] uppercase tracking-wider text-brand-600 font-bold">大型主景</span>
+                        <h4 class="font-bold text-brand-900">龜背竹 Monstera</h4>
+                        <p class="text-xs text-gray-500">極佳的室內北歐風格靈魂，耐陰且葉片美感十足。</p>
+                    </div>
+                </div>
+
+                <!-- Plant Item 2 -->
+                <div class="group rounded-2xl overflow-hidden border border-sand-200 bg-sand-50 hover:shadow-lg transition-all">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1598880940371-c756e015fea1?q=80&w=600&auto=format&fit=crop" alt="琴葉榕" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 space-y-1">
+                        <span class="text-[10px] uppercase tracking-wider text-brand-600 font-bold">中大型綠植</span>
+                        <h4 class="font-bold text-brand-900">琴葉榕 Fiddle Leaf</h4>
+                        <p class="text-xs text-gray-500">線條挺拔、姿態優雅，非常適合咖啡廳角落或玄關。</p>
+                    </div>
+                </div>
+
+                <!-- Plant Item 3 -->
+                <div class="group rounded-2xl overflow-hidden border border-sand-200 bg-sand-50 hover:shadow-lg transition-all">
+                    <div class="h-48 overflow-hidden">
+                        <!-- <img src="" alt="虎尾蘭" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"> -->
+                     <img src="images/P1.jpg" alt="虎尾蘭" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 space-y-1">
+                        <span class="text-[10px] uppercase tracking-wider text-brand-600 font-bold">空氣淨化強手</span>
+                        <h4 class="font-bold text-brand-900">棒葉/金邊虎尾蘭</h4>
+                        <p class="text-xs text-gray-500">極度耐旱、淨化空氣第一名，適合低採光室內。</p>
+                    </div>
+                </div>
+
+                <!-- Plant Item 4 -->
+                <div class="group rounded-2xl overflow-hidden border border-sand-200 bg-sand-50 hover:shadow-lg transition-all">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1592150621744-aca64f48394a?q=80&w=600&auto=format&fit=crop" alt="白脈/綠鑽蔓綠絨" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 space-y-1">
+                        <span class="text-[10px] uppercase tracking-wider text-brand-600 font-bold">桌面與懸掛</span>
+                        <h4 class="font-bold text-brand-900">蔓綠絨系列 Philodendron</h4>
+                        <p class="text-xs text-gray-500">多變的葉型與色彩，增添層架與工作檯面的精緻感。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Process Section -->
+    <section id="process" class="py-20 bg-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-semibold text-brand-600 uppercase tracking-widest">SERVICE WORKFLOW</h2>
+                <h3 class="text-3xl font-serif font-bold text-brand-950">四大極簡合作流程</h3>
+                <p class="text-gray-600">從最初溝通到現場綠意維持，森裡為您包辦每個細節</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                <!-- Step 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-sand-200 space-y-4 relative z-10">
+                    <div class="w-10 h-10 rounded-full bg-brand-700 text-sand-50 font-serif font-bold flex items-center justify-center">
+                        01
+                    </div>
+                    <h4 class="text-lg font-bold text-brand-900">需求諮詢 ✕ 現場勘查</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        線上填單或諮詢，專人免費前往現場丈量光線、評估空間通風與風格基調。
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-sand-200 space-y-4 relative z-10">
+                    <div class="w-10 h-10 rounded-full bg-brand-700 text-sand-50 font-serif font-bold flex items-center justify-center">
+                        02
+                    </div>
+                    <h4 class="text-lg font-bold text-brand-900">植案規劃 ✕ 提案簽約</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        量身出具植物清單與搭配建議書，確認租賃方案、養護頻率與合約條款。
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-sand-200 space-y-4 relative z-10">
+                    <div class="w-10 h-10 rounded-full bg-brand-700 text-sand-50 font-serif font-bold flex items-center justify-center">
+                        03
+                    </div>
+                    <h4 class="text-lg font-bold text-brand-900">花市直送 ✕ 擺設進駐</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        從大溪花市嚴選最新鮮健康植株，現場完成移植、盆器美化與景觀定位。
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-white p-6 rounded-2xl border border-sand-200 space-y-4 relative z-10">
+                    <div class="w-10 h-10 rounded-full bg-brand-700 text-sand-50 font-serif font-bold flex items-center justify-center">
+                        04
+                    </div>
+                    <h4 class="text-lg font-bold text-brand-900">定期巡檢 ✕ 免費替換</h4>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        依約進行定期專人巡檢、補給營養、剪枝擦葉。生長不佳植物享有免費更換。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost Calculator Section -->
+    <section id="calculator" class="py-20 bg-white border-y border-sand-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+                <h2 class="text-xs font-semibold text-brand-600 uppercase tracking-widest">ESTIMATION TOOL</h2>
+                <h3 class="text-3xl font-serif font-bold text-brand-950">綠意月租費用線上快速試算</h3>
+                <p class="text-sm text-gray-500">選擇您預計放置的植物數量與規模，立即取得估算費用</p>
+            </div>
+
+            <div class="bg-sand-50 border border-sand-200 rounded-3xl p-6 md:p-10 shadow-sm grid grid-cols-1 md:grid-cols-12 gap-8">
+                <!-- Inputs Controls -->
+                <div class="md:col-span-7 space-y-6">
+                    <!-- Large Plants -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <label class="text-sm font-bold text-brand-900">大型落地主題植栽 (約 120-180cm)</label>
+                            <span id="largeVal" class="text-sm font-bold text-brand-700 bg-brand-100 px-2 py-0.5 rounded">1 盆</span>
+                        </div>
+                        <input type="range" id="largePlants" min="0" max="5" value="1" class="w-full accent-brand-700 cursor-pointer" oninput="calculateTotal()">
+                        <p class="text-[11px] text-gray-500">如：龜背竹、琴葉榕、天堂鳥（含質感水泥/陶瓷盆）</p>
+                    </div>
+
+                    <!-- Medium Plants -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <label class="text-sm font-bold text-brand-900">中型景觀植栽 (約 60-100cm)</label>
+                            <span id="mediumVal" class="text-sm font-bold text-brand-700 bg-brand-100 px-2 py-0.5 rounded">2 盆</span>
+                        </div>
+                        <input type="range" id="mediumPlants" min="0" max="8" value="2" class="w-full accent-brand-700 cursor-pointer" oninput="calculateTotal()">
+                        <p class="text-[11px] text-gray-500">如：虎尾蘭、印度橡膠樹、白馬粗肋草</p>
+                    </div>
+
+                    <!-- Small Plants -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <label class="text-sm font-bold text-brand-900">小型桌面/懸掛苔球植栽</label>
+                            <span id="smallVal" class="text-sm font-bold text-brand-700 bg-brand-100 px-2 py-0.5 rounded">2 盆</span>
+                        </div>
+                        <input type="range" id="smallPlants" min="0" max="10" value="2" class="w-full accent-brand-700 cursor-pointer" oninput="calculateTotal()">
+                        <p class="text-[11px] text-gray-500">如：綠蘿、合果芋、椒草、手作苔球</p>
+                    </div>
+
+                    <!-- Maintenance Frequency -->
+                    <div class="space-y-2 pt-2 border-t border-sand-200">
+                        <label class="text-sm font-bold text-brand-900 block">養護與巡檢頻率</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button type="button" id="freq1" onclick="setFrequency(1)" class="py-2.5 px-4 rounded-xl text-xs font-medium border border-brand-700 bg-brand-700 text-white transition-all">
+                                每月 1 次巡檢
+                            </button>
+                            <button type="button" id="freq2" onclick="setFrequency(2)" class="py-2.5 px-4 rounded-xl text-xs font-medium border border-sand-300 bg-white text-gray-700 transition-all">
+                                隔週 1 次巡檢 (每月2次)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Display Box -->
+                <div class="md:col-span-5 bg-brand-900 text-sand-50 p-6 rounded-2xl flex flex-col justify-between space-y-6">
+                    <div>
+                        <span class="text-xs text-brand-300 uppercase tracking-widest font-semibold">ESTIMATED RENTAL</span>
+                        <h4 class="text-xl font-serif font-bold text-white mt-1">預估月租養護費用</h4>
+                        
+                        <div class="my-6 border-y border-brand-800 py-4 space-y-2">
+                            <div class="flex justify-between text-xs text-sand-200">
+                                <span>綠植租賃與盆器擺設</span>
+                                <span id="plantSubtotal">NT$ 2,200</span>
+                            </div>
+                            <div class="flex justify-between text-xs text-sand-200">
+                                <span>專業專人養護維護</span>
+                                <span id="maintSubtotal">NT$ 600</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-sm text-sand-300">NT$</span>
+                            <span id="grandTotal" class="text-4xl font-bold font-serif text-white">2,800</span>
+                            <span class="text-xs text-sand-300">/ 月</span>
+                        </div>
+                        <p class="text-[11px] text-sand-400 mt-2">* 實際費用將依據現場採光條件、地區遠近與期約長短（季約/半年約/年約）微調。</p>
+                    </div>
+
+                    <a href="#contact" onclick="applyCalculationToForm()" class="w-full py-3 bg-brand-400 hover:bg-brand-500 text-brand-950 text-center font-bold text-sm rounded-xl transition-colors block">
+                        套用此試算預約現場勘查
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-20 bg-pattern">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl border border-sand-200 p-8 sm:p-12 shadow-xl space-y-8">
+                <div class="text-center space-y-3">
+                    <span class="text-xs font-semibold text-brand-600 uppercase tracking-widest">GET IN TOUCH</span>
+                    <h3 class="text-3xl font-serif font-bold text-brand-950">預約專屬植物養護勘查</h3>
+                    <p class="text-sm text-gray-600">填寫下方資訊，森裡團隊將於 24 小時內與您聯繫安排現場丈量與提案。</p>
+                </div>
+
+                <form id="proposalForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Name -->
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-brand-900">聯絡人姓名 / 寶號 *</label>
+                            <input type="text" required placeholder="如：李小姐 / 靜謐咖啡館" class="w-full px-4 py-3 rounded-xl border border-sand-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-brand-900">聯絡電話 *</label>
+                            <input type="tel" required placeholder="09xx-xxx-xxx" class="w-full px-4 py-3 rounded-xl border border-sand-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Space Type -->
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-brand-900">空間類型</label>
+                            <select id="spaceType" class="w-full px-4 py-3 rounded-xl border border-sand-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm bg-white">
+                                <option value="咖啡廳/餐廳">咖啡廳 / 餐廳門市</option>
+                                <option value="商業辦公室">商業辦公室 / 工作室</option>
+                                <option value="私人住宅">私人住宅 / 居家空間</option>
+                                <option value="展覽/短期活動">展覽 / 快閃活動 (短租)</option>
+                            </select>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-brand-900">空間所在區域</label>
+                            <input type="text" placeholder="如：桃園市大溪區 / 中壢區" class="w-full px-4 py-3 rounded-xl border border-sand-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
+                        </div>
+                    </div>
+
+                    <!-- Selected Plan / Requirements -->
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold text-brand-900">感興趣方案或試算需求</label>
+                        <textarea id="formNotes" rows="3" placeholder="請註明您感興趣的方案、偏好的植物種類或空間採光狀況..." class="w-full px-4 py-3 rounded-xl border border-sand-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-brand-700 hover:bg-brand-800 text-sand-50 font-bold rounded-xl transition-all shadow-md text-base">
+                        送出預約申請
+                    </button>
+                </form>
+
+                <!-- Confirmation Alert Box (Hidden by default) -->
+                <div id="successAlert" class="hidden p-4 rounded-xl bg-brand-100 border border-brand-300 text-brand-900 text-sm text-center space-y-2">
+                    <i class="fa-solid fa-circle-check text-xl text-brand-600 block"></i>
+                    <p class="font-bold">預約需求已順利送出！</p>
+                    <p class="text-xs text-brand-700">感謝您的諮詢，森裡團隊將儘速與您確認勘查時間。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-950 text-sand-200 py-12 border-t border-brand-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center pb-8 border-b border-brand-900">
+                <div class="md:col-span-6 space-y-2">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-brand-700 text-sand-50 flex items-center justify-center font-serif font-bold">
+                            森
+                        </div>
+                        <span class="text-lg font-serif font-bold text-white tracking-wider">SENRI 森裡</span>
+                    </div>
+                    <p class="text-xs text-sand-400">自然 ✕ 香氣 ✕ 手作 ✕ 綠意養護 ｜ 在自然與手作之間，慢下來。</p>
+                </div>
+
+                <div class="md:col-span-6 flex flex-wrap md:justify-end gap-6 text-xs text-sand-300">
+                    <p><i class="fa-solid fa-location-dot text-brand-400 mr-2"></i>桃園市大溪區 (大溪花市合作直送)</p>
+                    <p><i class="fa-solid fa-envelope text-brand-400 mr-2"></i>senri.plant@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-sand-400 gap-4">
+                <p>&copy; 2026 SENRI 森裡. All Rights Reserved.</p>
+                <div class="flex gap-4">
+                    <a href="https://paggy866800-beep.github.io/myweb1/" target="_blank" class="hover:text-sand-100 transition-colors">森裡官網連結</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Interactive Price Calculator Logic
+        let currentFrequency = 1; // 1 = monthly, 2 = bi-weekly
+
+        function calculateTotal() {
+            const large = parseInt(document.getElementById('largePlants').value);
+            const medium = parseInt(document.getElementById('mediumPlants').value);
+            const small = parseInt(document.getElementById('smallPlants').value);
+
+            // Update UI Labels
+            document.getElementById('largeVal').innerText = `${large} 盆`;
+            document.getElementById('mediumVal').innerText = `${medium} 盆`;
+            document.getElementById('smallVal').innerText = `${small} 盆`;
+
+            // Unit Pricing Logic (Monthly Base Rental per plant)
+            const plantSubtotal = (large * 800) + (medium * 400) + (small * 250);
+            
+            // Maintenance Fee base logic
+            let maintFee = 600;
+            if (currentFrequency === 2) {
+                maintFee = 1200;
+            }
+
+            const total = plantSubtotal + maintFee;
+
+            // Display Results
+            document.getElementById('plantSubtotal').innerText = `NT$ ${plantSubtotal.toLocaleString()}`;
+            document.getElementById('maintSubtotal').innerText = `NT$ ${maintFee.toLocaleString()}`;
+            document.getElementById('grandTotal').innerText = total.toLocaleString();
+        }
+
+        function setFrequency(freq) {
+            currentFrequency = freq;
+            const btn1 = document.getElementById('freq1');
+            const btn2 = document.getElementById('freq2');
+
+            if (freq === 1) {
+                btn1.className = "py-2.5 px-4 rounded-xl text-xs font-medium border border-brand-700 bg-brand-700 text-white transition-all";
+                btn2.className = "py-2.5 px-4 rounded-xl text-xs font-medium border border-sand-300 bg-white text-gray-700 transition-all";
+            } else {
+                btn2.className = "py-2.5 px-4 rounded-xl text-xs font-medium border border-brand-700 bg-brand-700 text-white transition-all";
+                btn1.className = "py-2.5 px-4 rounded-xl text-xs font-medium border border-sand-300 bg-white text-gray-700 transition-all";
+            }
+
+            calculateTotal();
+        }
+
+        function selectPlan(planName) {
+            const notes = document.getElementById('formNotes');
+            notes.value = `我想了解【${planName}】的詳細細節與現場勘查評估。`;
+        }
+
+        function applyCalculationToForm() {
+            const large = document.getElementById('largePlants').value;
+            const medium = document.getElementById('mediumPlants').value;
+            const small = document.getElementById('smallPlants').value;
+            const total = document.getElementById('grandTotal').innerText;
+            const freqText = currentFrequency === 1 ? '每月1次' : '隔週1次';
+
+            const notes = document.getElementById('formNotes');
+            notes.value = `【線上試算結果需求】\n大型植栽：${large}盆\n中型植栽：${medium}盆\n小型/苔球：${small}盆\n養護頻率：${freqText}\n預估月租金額：NT$ ${total}`;
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            document.getElementById('proposalForm').classList.add('hidden');
+            document.getElementById('successAlert').classList.remove('hidden');
+        }
+
+        // Initialize Calculator on Load
+        calculateTotal();
+    </script>
+</body>
+</html>
